@@ -1,0 +1,52 @@
+# Model arguments
+model_name_or_path: ../../huggingface/models/Qwen2.5-3B
+model_revision: main
+torch_dtype: bfloat16
+attn_implementation: flash_attention_2
+trust_remote_code: true
+
+# Data training arguments
+dataset_name: ../../huggingface/datasets/Salesforce_wikitext.wikitext-103-raw-v1/
+dataset_output_path: exp_llm/data/qwen2/ids_wikitext_103
+dataset_train_split: train
+dataset_test_split: validation
+# dataset_name: ../../huggingface/datasets/openwebtext2
+# dataset_output_path: exp_llm/data/qwen2/ids_openwebtext2
+# dataset_train_size: 0.01
+# dataset_test_size: 10000
+# dataset_train_split: train
+# dataset_test_split: test
+dataset_num_proc: 16
+
+# SFT trainer config
+bf16: true
+do_eval: true
+eval_strategy: steps
+eval_steps: 200
+eval_on_start: true
+gradient_accumulation_steps: 1
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: false
+learning_rate: 2.0e-05
+log_level: info
+logging_steps: 20
+logging_strategy: steps
+lr_scheduler_type: cosine
+max_length: 1024
+packing: true
+packing_strategy: wrapped
+max_steps: -1
+num_train_epochs: 1
+output_dir: exp_llm/output/qwen2
+overwrite_output_dir: true
+per_device_eval_batch_size: 8
+per_device_train_batch_size: 8
+push_to_hub: false
+remove_unused_columns: true
+report_to: tensorboard
+save_strategy: "steps"
+save_steps: 1000
+save_total_limit: 1
+seed: 42
+warmup_steps: 500

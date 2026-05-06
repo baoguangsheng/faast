@@ -1,0 +1,45 @@
+# Model arguments
+model_name_or_path: exp_llm/models/memory-llama
+model_revision: main
+torch_dtype: bfloat16
+attn_implementation: flash_attention_2
+trust_remote_code: true
+
+# Data training arguments
+dataset_name: exp_llm/data/llama/ids_default
+dataset_train_split: train
+dataset_test_split: test
+dataset_num_proc: 16
+
+# SFT trainer config
+bf16: true
+do_eval: true
+eval_strategy: steps
+eval_steps: 200
+eval_on_start: true
+gradient_accumulation_steps: 2
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: false
+learning_rate: 2.0e-05
+log_level: info
+logging_steps: 20
+logging_strategy: steps
+lr_scheduler_type: cosine
+max_length: 1024
+packing: true
+packing_strategy: wrapped
+max_steps: -1
+num_train_epochs: 1
+output_dir: exp_llm/output/memory-llama
+overwrite_output_dir: true
+per_device_eval_batch_size: 8
+per_device_train_batch_size: 4
+push_to_hub: false
+remove_unused_columns: true
+report_to: tensorboard
+save_strategy: "steps"
+save_steps: 2000
+save_total_limit: 5
+seed: 42
+warmup_steps: 500

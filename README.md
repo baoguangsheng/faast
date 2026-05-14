@@ -1,5 +1,5 @@
 # faast
-Code base for (FAAST: Forward-Only Associative Learning via Closed-Form Fast Weights for Test-Time Supervised Adaptation)[https://arxiv.org/pdf/2605.04651]
+Code base for [FAAST: Forward-Only Associative Learning via Closed-Form Fast Weights for Test-Time Supervised Adaptation](https://arxiv.org/pdf/2605.04651)
 
 ## Pretrained LLMs and Their Usage 
 

@@ -63,7 +63,7 @@ huggingface-cli download gshbao/faast-Qwen2.5-7B-Instruct  --local-dir ./faast_m
 ├── llm/                        <- The implementation of the FAAST module for LLMs
 ├── README.md                   <- The top-level README for developers using this project
 ├── scripts/                    <- Scripts to train and evaluate LLMs extended with FAAST module.
-├── setup.cfg                   <- Installation config (mostly used for configuring code quality & tests)
+├── setup.cfg                   <- Installation config
 ├── setup.py                    <- Makes project pip installable (pip install -e .) 
 └── vision/                     <- The implementation of the FAAST module for image classification
 ```
